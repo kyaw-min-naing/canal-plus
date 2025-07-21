@@ -15,7 +15,6 @@ import { SubscriptionNumberInput } from "../components/SubscriptionInput";
 const RECENT_SUBSCRIPTIONS = [
   { number: "00086471", label: "Canal Plus" },
   { number: "00087431", label: "Canal Plus" },
-  { number: "00087456", label: "Canal Plus" },
 ];
 
 export function HomePage() {

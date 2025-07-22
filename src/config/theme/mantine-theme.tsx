@@ -6,9 +6,9 @@ export const theme = createTheme({
       "#ffe0f3",
       "#ffb3e0",
       "#ff80cc",
-      "#ff4db8",
+      "#ff7AC9",
       "#ff1aa4",
-      "#e6008a", // Primary pink
+      "#EC008c", // Primary pink
       "#cc0070",
       "#b30056",
       "#99003c",
@@ -26,21 +26,5 @@ export const theme = createTheme({
       "#212529",
       "#000000",
     ],
-  },
-  primaryColor: "brand",
-  primaryShade: 5,
-  components: {
-    Button: {
-      defaultProps: {
-        size: "md",
-        radius: "md",
-      },
-    },
-    TextInput: {
-      defaultProps: {
-        size: "md",
-        radius: "md",
-      },
-    },
   },
 });

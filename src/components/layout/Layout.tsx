@@ -10,11 +10,11 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <AppShell
       bg="gray.1"
-      header={{ height: 100 }}
+      header={{ height: 130 }}
       padding={0}
       styles={{
         main: {
-          height: "calc(100vh - 40px)",
+          height: "calc(100vh - 30px)",
           overflow: "hidden",
         },
       }}
@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
           style={{
             transform: "translateX(-50%)",
             zIndex: 100,
-            width: "92%",
+            width: "100%",
             overflow: "visible",
           }}
         >

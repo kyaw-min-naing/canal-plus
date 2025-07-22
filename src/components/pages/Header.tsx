@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 
 const PAGE_TITLES = {
   "/": "Canal Plus (DTT/DTH)",
+  "/subscription": "Canal Plus (DTT/DTH)",
   "/payment": "Payment Options",
-  "/subscription": "Subscription Details",
 } as const;
 
 export function Header() {
@@ -19,11 +19,11 @@ export function Header() {
     <Box
       h="100%"
       style={{
-        background: `linear-gradient(135deg, ${theme.colors.brand[5]} 0%, ${theme.colors.brand[6]} 100%)`,
+        background: `${theme.colors.brand[5]}`,
         display: "flex",
         alignItems: "center",
-        paddingLeft: theme.spacing.lg,
-        paddingRight: theme.spacing.lg,
+        border: "none",
+        boxShadow: `10px 20px 10px 20px ${theme.colors.brand[5]}`,
       }}
     >
       <Group justify="space-between" w="100%">
@@ -31,9 +31,7 @@ export function Header() {
           size="xl"
           fw={600}
           c="white"
-          style={{
-            textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          }}
+          ml={{ base: "1.2rem", sm: "2rem", md: "4rem", lg: "4.2rem" }}
         >
           {currentTitle}
         </Text>

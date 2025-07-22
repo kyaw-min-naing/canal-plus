@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
 import { HomePage } from "../../pages/HomePage";
+import { SubscriptionPage } from "../../pages/SubscriptionPage";
 
 const router = createBrowserRouter([
   {
@@ -12,10 +13,8 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "payment",
-      },
-      {
         path: "subscription",
+        element: <SubscriptionPage />,
       },
     ],
   },

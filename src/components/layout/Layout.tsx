@@ -2,11 +2,7 @@ import { AppShell, Box } from "@mantine/core";
 import { Outlet } from "react-router-dom";
 import { Header } from "../../components/pages/Header";
 
-interface LayoutProps {
-  children?: React.ReactNode;
-}
-
-export default function Layout({ children }: LayoutProps) {
+export default function Layout() {
   return (
     <AppShell
       bg="gray.1"
@@ -40,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
             overflow: "visible",
           }}
         >
-          {children || <Outlet />}
+          <Outlet />
         </Box>
       </AppShell.Main>
     </AppShell>

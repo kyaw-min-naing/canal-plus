@@ -26,7 +26,7 @@ const PACKAGE_PRICES = {
 export function SubscriptionPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const subNumber = location.state?.subNumber || "367-006378";
+  const subNumber = location.state?.subNumber;
 
   const [selectedPackage, setSelectedPackage] = useState(
     "renew-shall-dtt-2025"
@@ -36,7 +36,18 @@ export function SubscriptionPage() {
   const currentPrice =
     PACKAGE_PRICES[selectedPackage as keyof typeof PACKAGE_PRICES]?.[
       selectedDuration as "1" | "3" | "6" | "12"
-    ] || 32000;
+    ];
+
+  const handleContinue = () => {
+    const ConfirmationData = {
+      subNumber,
+      customerName: "Aung Ye Htun",
+      packageType: selectedPackage,
+      duration: selectedDuration,
+      amount: currentPrice,
+    };
+    navigate("/confirmation", { state: ConfirmationData });
+  };
 
   return (
     <Stack gap="xl">
@@ -102,7 +113,7 @@ export function SubscriptionPage() {
         </Stack>
       </Card>
 
-      <ContinueButton onClick={() => navigate("/payment")} text="Continue" />
+      <ContinueButton onClick={handleContinue} text="Continue" />
     </Stack>
   );
 }

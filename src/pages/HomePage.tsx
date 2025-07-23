@@ -95,7 +95,7 @@ export function HomePage() {
         />
       </Box>
 
-      <Box mb={245}>
+      <Box>
         <ContinueButton
           onClick={handleContinue}
           show={showContinue}

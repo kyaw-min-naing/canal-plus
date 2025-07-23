@@ -6,6 +6,7 @@ import { MantineProvider } from "@mantine/core";
 import { RouterProvider } from "react-router-dom";
 import router from "./config/router/AppRoutes.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./index.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

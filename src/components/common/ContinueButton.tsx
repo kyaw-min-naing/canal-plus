@@ -17,19 +17,8 @@ export function ContinueButton({
     <Card
       p="lg"
       radius="md"
-      shadow="sm"
       bg="white"
-      style={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        margin: 0,
-        borderRadius: "16px 16px 0 0",
-        zIndex: 100,
-        transform: show ? "translateY(0)" : "translateY(100%)",
-        transition: "transform 5.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-      }}
+      className={`continue-button ${show ? "slide-up" : ""}`}
     >
       <Button
         size="lg"

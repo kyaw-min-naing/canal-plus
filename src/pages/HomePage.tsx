@@ -1,10 +1,23 @@
-import { Stack, Text, Box, Card, Group, useMantineTheme } from "@mantine/core";
+import {
+  Stack,
+  Text,
+  Box,
+  Card,
+  Group,
+  useMantineTheme,
+  Drawer,
+  Button,
+} from "@mantine/core";
 import HowToPay from "../assets/How-to-pay.png";
 import PayBill from "../assets/Service Icons=Pay Bills.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SubscriptionNumberInput } from "../components/common/SubscriptionInput";
 import { ContinueButton } from "../components/common/ContinueButton";
+import { useMediaQuery } from "@mantine/hooks";
+import classes from "../pages/Drawer.css";
+import clsx from "clsx";
+import { useFooterVisibility } from "../components/FooterVisibilityContext";
 
 const RECENT_SUBSCRIPTIONS = [
   { number: "00086471", label: "Canal Plus" },
@@ -14,8 +27,13 @@ const RECENT_SUBSCRIPTIONS = [
 export function HomePage() {
   const [subNumber, setSubNumber] = useState("");
   const [showContinue, setShowContinue] = useState(false);
+  const [drawerOpened, setDrawerOpened] = useState(false);
+
   const navigate = useNavigate();
   const theme = useMantineTheme();
+
+  const isMobileOrTablet = useMediaQuery("(max-width: 1024px)");
+  const { setShowFooter, setFooterData } = useFooterVisibility();
 
   useEffect(() => {
     if (subNumber.trim()) {
@@ -29,6 +47,11 @@ export function HomePage() {
     if (subNumber.trim()) {
       navigate("/subscription", { state: { subNumber } });
     }
+  };
+
+  const handleCardClick = (number: string) => {
+    setShowFooter(true);
+    setFooterData({ subNumber: number });
   };
 
   return (
@@ -61,7 +84,7 @@ export function HomePage() {
                         : "none",
                       transition: "all 0.2s ease",
                     }}
-                    onClick={() => setSubNumber(sub.number)}
+                    onClick={() => handleCardClick(sub.number)}
                   >
                     <Group gap="sm">
                       <Box>
@@ -95,13 +118,15 @@ export function HomePage() {
         />
       </Box>
 
-      <Box mb={245}>
-        <ContinueButton
-          onClick={handleContinue}
-          show={showContinue}
-          text="Continue"
-        />
-      </Box>
+      {/* {isMobileOrTablet && (
+        <Box>
+          <ContinueButton
+            onClick={handleContinue}
+            show={showContinue}
+            text="Continue"
+          />
+        </Box>
+      )} */}
     </Stack>
   );
 }

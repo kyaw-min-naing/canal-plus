@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../../components/layout/Layout";
 import { HomePage } from "../../pages/HomePage";
 import { SubscriptionPage } from "../../pages/SubscriptionPage";
+import { TransactionSuccess } from "../../pages/TransactionSuccess";
+import Layout from "../../components/layout/Layout";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         path: "subscription",
         element: <SubscriptionPage />,
       },
+      {
+        path: "transaction-success",
+        element: <TransactionSuccess />
+      }
     ],
   },
 ]);

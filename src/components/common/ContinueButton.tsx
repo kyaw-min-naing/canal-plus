@@ -20,15 +20,16 @@ export function ContinueButton({
       shadow="sm"
       bg="white"
       style={{
-        position: "fixed",
         bottom: 0,
         left: 0,
         right: 0,
         margin: 0,
-        borderRadius: "16px 16px 0 0",
-        zIndex: 100,
-        transform: show ? "translateY(0)" : "translateY(100%)",
-        transition: "transform 5.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        borderRadius: "16px 16px 16px 16px",
+        zIndex: 2, // Changed from 100
+        animation: "slideUp 0.5s ease-out",
+        animationDelay: "1s",
+        animationFillMode: "forwards",
+        opacity: 0, 
       }}
     >
       <Button
@@ -46,3 +47,4 @@ export function ContinueButton({
     </Card>
   );
 }
+

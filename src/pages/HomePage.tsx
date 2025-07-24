@@ -127,6 +127,13 @@ export function HomePage() {
           />
         </Box>
       )} */}
+      {/* <Box>
+        <ContinueButton
+          onClick={handleContinue}
+          show={showContinue}
+          text="Continue"
+        />
+      </Box> */}
     </Stack>
   );
 }

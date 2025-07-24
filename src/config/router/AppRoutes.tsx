@@ -3,6 +3,7 @@ import { HomePage } from "../../pages/HomePage";
 import { SubscriptionPage } from "../../pages/SubscriptionPage";
 import { TransactionSuccess } from "../../pages/TransactionSuccess";
 import Layout from "../../components/layout/Layout";
+import { ConfirmationPage } from "../../pages/ConfirmationPage";
 
 const router = createBrowserRouter([
   {
@@ -19,14 +20,14 @@ const router = createBrowserRouter([
       },
       {
         path: "transaction-success",
-        element: <TransactionSuccess />
-      }
+        element: <TransactionSuccess />,
+      },
+      {
+        path: "confirmation",
+        element: <ConfirmationPage />,
+      },
     ],
-  },
+  }
 ]);
 
 export default router;
-
-// export function AppRouter() {
-//   return <RouterProvider router={router} />;
-// }

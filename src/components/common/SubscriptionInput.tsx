@@ -32,9 +32,8 @@ export function SubscriptionNumberInput({
     return (
       <Card p="lg" radius="md" shadow="sm" bg="white" mb="md">
         <Stack gap="lg">
-          {/* Subscription Number */}
           <Box>
-            <Text size="sm" fw={500} mb="xs" c="dark.7">
+            <Text size="lg" fw={700} mb="xs">
               Subscription Number
             </Text>
             <Group
@@ -66,7 +65,6 @@ export function SubscriptionNumberInput({
             </Group>
           </Box>
 
-          {/* Customer Info */}
           {(customerName || customerHome) && (
             <Box>
               {customerName && (

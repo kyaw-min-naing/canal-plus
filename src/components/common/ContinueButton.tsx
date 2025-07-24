@@ -17,7 +17,6 @@ export function ContinueButton({
     <Card
       p="lg"
       radius="md"
-      shadow="sm"
       bg="white"
       style={{
         bottom: 0,
@@ -31,6 +30,7 @@ export function ContinueButton({
         animationFillMode: "forwards",
         opacity: 0, 
       }}
+      className={`continue-button ${show ? "slide-up" : ""}`}
     >
       <Button
         size="lg"

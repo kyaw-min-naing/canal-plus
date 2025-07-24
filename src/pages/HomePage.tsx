@@ -1,57 +1,31 @@
-import {
-  Stack,
-  Text,
-  Box,
-  Card,
-  Group,
-  useMantineTheme,
-  Drawer,
-  Button,
-} from "@mantine/core";
-import HowToPay from "../assets/How-to-pay.png";
-import PayBill from "../assets/Service Icons=Pay Bills.png";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { SubscriptionNumberInput } from "../components/common/SubscriptionInput";
-import { ContinueButton } from "../components/common/ContinueButton";
-import { useMediaQuery } from "@mantine/hooks";
-import classes from "../pages/Drawer.css";
-import clsx from "clsx";
-import { useFooterVisibility } from "../components/FooterVisibilityContext";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Stack, Card, Group, Text, Box } from "@mantine/core";
+import { useState } from "react";
+import PayBill from "../assets/pay-bill.png";
+import HowToPay from "../assets/how-to-pay.png";
+import { SubscriptionNumberInput } from "../components/SubscriptionInput";
 
 const RECENT_SUBSCRIPTIONS = [
-  { number: "00086471", label: "Canal Plus" },
-  { number: "00087431", label: "Canal Plus" },
+  { number: "0925000001", label: "MPT" },
+  { number: "0978000002", label: "Telenor" },
 ];
 
-export function HomePage() {
-  const [subNumber, setSubNumber] = useState("");
-  const [showContinue, setShowContinue] = useState(false);
-  const [drawerOpened, setDrawerOpened] = useState(false);
-
+export default function HomePage() {
   const navigate = useNavigate();
-  const theme = useMantineTheme();
-
-  const isMobileOrTablet = useMediaQuery("(max-width: 1024px)");
-  const { setShowFooter, setFooterData } = useFooterVisibility();
-
-  useEffect(() => {
-    if (subNumber.trim()) {
-      setShowContinue(true);
-    } else {
-      setShowContinue(false);
-    }
-  }, [subNumber]);
-
-  const handleContinue = () => {
-    if (subNumber.trim()) {
-      navigate("/subscription", { state: { subNumber } });
-    }
-  };
+  const location = useLocation();
+  const [subNumber, setSubNumber] = useState("");
 
   const handleCardClick = (number: string) => {
-    setShowFooter(true);
-    setFooterData({ subNumber: number });
+    setSubNumber(number);
+
+    navigate(".", {
+      state: {
+        ...location.state,
+        footerLabel: "Continue",
+        nextRoute: "/subscription",
+        subNumber: number
+      },
+    });
   };
 
   return (
@@ -76,12 +50,8 @@ export function HomePage() {
                     style={{
                       flex: 1,
                       cursor: "pointer",
-                      backgroundColor: isHighlighted
-                        ? theme.colors.brand[0]
-                        : `${theme.colors.gray[1]}`,
-                      border: isHighlighted
-                        ? `1.5px solid ${theme.colors.brand[5]}`
-                        : "none",
+                      backgroundColor: isHighlighted ? "#FFF0F5" : "#F1F3F5",
+                      border: isHighlighted ? `1.5px solid #EC0B8C` : "none",
                       transition: "all 0.2s ease",
                     }}
                     onClick={() => handleCardClick(sub.number)}
@@ -113,27 +83,9 @@ export function HomePage() {
           style={{
             width: "100%",
             borderRadius: "8px",
-            // objectFit: "cover",
           }}
         />
       </Box>
-
-      {/* {isMobileOrTablet && (
-        <Box>
-          <ContinueButton
-            onClick={handleContinue}
-            show={showContinue}
-            text="Continue"
-          />
-        </Box>
-      )} */}
-      {/* <Box>
-        <ContinueButton
-          onClick={handleContinue}
-          show={showContinue}
-          text="Continue"
-        />
-      </Box> */}
     </Stack>
   );
 }

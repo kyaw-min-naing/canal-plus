@@ -1,8 +1,7 @@
 import { Box, Card, Group, Select, Stack, Text } from "@mantine/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SubscriptionNumberInput } from "../components/common/SubscriptionInput";
-import { ContinueButton } from "../components/common/ContinueButton";
+import { SubscriptionNumberInput } from "../components/SubscriptionInput";
 
 const PACKAGE_OPTIONS = [
   { value: "renew-shall-dtt-2025", label: "Renew Shall DTT 2025" },
@@ -38,16 +37,17 @@ export function SubscriptionPage() {
       selectedDuration as "1" | "3" | "6" | "12"
     ];
 
-  const handleContinue = () => {
-    const ConfirmationData = {
-      subNumber,
-      customerName: "Aung Ye Htun",
-      packageType: selectedPackage,
-      duration: selectedDuration,
-      amount: currentPrice,
-    };
-    navigate("/confirmation", { state: ConfirmationData });
-  };
+  useEffect(() => {
+    if (!location.state?.fromFooterClick) return;
+
+    navigate(".", {
+      state: {
+        ...location.state,
+        footerLabel: "Continue",
+        nextRoute: "/confirmation",
+      },
+    });
+  }, [currentPrice, location.state, navigate]);
 
   return (
     <Stack gap="xl">
@@ -112,8 +112,6 @@ export function SubscriptionPage() {
           </Box>
         </Stack>
       </Card>
-
-      <ContinueButton onClick={handleContinue} text="Continue" />
     </Stack>
   );
 }

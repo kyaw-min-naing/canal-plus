@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { HomePage } from "../../pages/HomePage";
 import { SubscriptionPage } from "../../pages/SubscriptionPage";
 import { TransactionSuccess } from "../../pages/TransactionSuccess";
-import Layout from "../../components/layout/Layout";
+import Layout from "../../components/Layout";
 import { ConfirmationPage } from "../../pages/ConfirmationPage";
+import HomePage from "../../pages/HomePage";
 
 const router = createBrowserRouter([
   {

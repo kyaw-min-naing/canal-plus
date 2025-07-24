@@ -1,6 +1,6 @@
 import { Box, Button, Group, Text, useMantineTheme } from "@mantine/core";
 import { useLocation, useNavigate } from "react-router-dom";
-import LeftIcon from "../../assets/left-icon.png";
+import LeftIcon from "../assets/left-icon.png";
 
 const PAGE_TITLES = {
   "/": "Canal Plus (DTT/DTH)",

@@ -7,7 +7,6 @@ import { RouterProvider } from "react-router-dom";
 import router from "./config/router/AppRoutes.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./index.css";
-import { FooterVisibilityProvider } from "./components/FooterVisibilityProvider.tsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,9 +20,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <MantineProvider theme={theme}>
-        <FooterVisibilityProvider>
-          <RouterProvider router={router} />
-        </FooterVisibilityProvider>
+        <RouterProvider router={router} />
       </MantineProvider>
     </QueryClientProvider>
   </StrictMode>

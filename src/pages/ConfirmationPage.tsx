@@ -1,6 +1,6 @@
 import { Card, Group, Stack, Text } from "@mantine/core";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ContinueButton } from "../components/common/ContinueButton";
+import { useEffect } from "react";
 
 interface ConfirmationData {
   subNumber: string;
@@ -46,6 +46,21 @@ export function ConfirmationPage() {
     //
     console.log("Processing payment for:", data);
   };
+
+  useEffect(() => {
+    if (!location.state?.fromFooterClick) return;
+
+    navigate(".", {
+      state: {
+        ...location.state,
+        footerLabel: "Pay Now",
+        nextRoute: "/transaction-success",
+        fromFooterClick: false,
+        amount: `3000 Ks`,
+      },
+      replace: true,
+    });
+  }, []);
 
   return (
     <Stack gap="xl">
@@ -95,7 +110,8 @@ export function ConfirmationPage() {
                 Amount
               </Text>
               <Text size="sm" fw={500} c="dark.7" ta="right">
-                {data.amount.toLocaleString()} Ks
+                {/* {data.amount.toLocaleString()} Ks */}
+                1000 ks
               </Text>
             </Group>
 
@@ -113,7 +129,7 @@ export function ConfirmationPage() {
                 Total
               </Text>
               <Text size="md" fw={700} c="brand.5" ta="right">
-                {data.amount.toLocaleString()} Ks
+                1000 Ks
               </Text>
             </Group>
           </Stack>
@@ -132,11 +148,9 @@ export function ConfirmationPage() {
             Total Amount
           </Text>
           <Text size="xl" fw={700} c="brand.5">
-            {data.amount.toLocaleString()} Ks
+            1000 Ks
           </Text>
         </Group>
-
-        <ContinueButton onClick={handlePayNow} text="Pay Now" />
       </Card>
     </Stack>
   );

@@ -60,7 +60,13 @@ export function SubscriptionPage() {
         readonly={true}
       />
 
-      <Card p="lg" radius="md" shadow="sm" bg="white">
+      <Card
+        p="lg"
+        radius="md"
+        shadow="sm"
+        bg="white"
+        style={{ height: "360px", overflowY: "auto" }}
+      >
         <Stack gap="lg">
           <Box>
             <Text size="lg" fw={600} mb="lg" c="brand.6">

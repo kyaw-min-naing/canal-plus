@@ -19,18 +19,18 @@ export function FooterNavigator() {
   };
 
   if (!footerLabel || !nextRoute) {
-    return null; 
+    return null;
   }
 
   return (
     <div className="slide-up" style={{ overflow: "visible" }}>
-      <Card shadow="sm" padding="lg" radius="lg" style={{ paddingBottom: 24 }}>
+      <Card shadow="sm" padding="lg" radius="lg" style={{ paddingBottom: 50 }}>
         <Stack gap="md">
           {amount && (
-            <Flex justify="space-between" align="center" w="100%">
+            <Flex justify="space-between" align="center" w="100%" mt="-17">
               <Text fw={500}>{textAbove || "Total Amount"}</Text>
               <Text fw={700} c="brand.6">
-                {amount} Ks
+                {amount}
               </Text>
             </Flex>
           )}
@@ -39,6 +39,7 @@ export function FooterNavigator() {
             fullWidth
             size="md"
             radius="md"
+            mt="-5"
             onClick={handleClick}
             style={{
               background: "linear-gradient(180deg, #FF7AC9 0%, #EC0B8C 100%)",

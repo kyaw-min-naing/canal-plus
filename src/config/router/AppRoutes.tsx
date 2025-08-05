@@ -4,6 +4,7 @@ import { TransactionSuccess } from "../../pages/TransactionSuccess";
 import Layout from "../../components/Layout";
 import { ConfirmationPage } from "../../pages/ConfirmationPage";
 import HomePage from "../../pages/HomePage";
+import { HowToPay } from "../../pages/HowToPay";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,12 @@ const router = createBrowserRouter([
         path: "confirmation",
         element: <ConfirmationPage />,
       },
+      {
+        path: "how-to-pay",
+        element: <HowToPay />,
+      },
     ],
-  }
+  },
 ]);
 
 export default router;

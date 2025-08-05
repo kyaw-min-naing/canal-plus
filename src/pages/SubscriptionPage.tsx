@@ -61,6 +61,7 @@ export function SubscriptionPage() {
       />
 
       <Card
+        className="scroll-container"
         p="lg"
         radius="md"
         shadow="sm"

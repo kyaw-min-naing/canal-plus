@@ -29,24 +29,6 @@ export function ConfirmationPage() {
 
   const data: ConfirmationData | null = location.state;
 
-  if (!data) {
-    navigate("/");
-    return null;
-  }
-
-  const packageLabel =
-    PACKAGE_LABELS[data.packageType as keyof typeof PACKAGE_LABELS] ||
-    data.packageType;
-
-  const durationLabel =
-    DURATION_LABELS[data.duration as keyof typeof DURATION_LABELS] ||
-    `${data.duration} Month(s)`;
-
-  const handlePayNow = () => {
-    //
-    console.log("Processing payment for:", data);
-  };
-
   useEffect(() => {
     if (!location.state?.fromFooterClick) return;
 
@@ -61,6 +43,24 @@ export function ConfirmationPage() {
       replace: true,
     });
   }, []);
+
+  if (!data) {
+    navigate("/");
+    return null;
+  }
+
+  const packageLabel =
+    PACKAGE_LABELS[data.packageType as keyof typeof PACKAGE_LABELS] ||
+    data.packageType;
+
+  const durationLabel =
+    DURATION_LABELS[data.duration as keyof typeof DURATION_LABELS] ||
+    `${data.duration} Month(s)`;
+
+  // const handlePayNow = () => {
+  //   //
+  //   console.log("Processing payment for:", data);
+  // };
 
   return (
     <Stack gap="xl">

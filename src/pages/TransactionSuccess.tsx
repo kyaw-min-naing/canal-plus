@@ -14,12 +14,12 @@ import { IconCheck } from "@tabler/icons-react";
 import downloadImage from "@/assets/download.png";
 import shareImage from "@/assets/share.png";
 import scheduleImage from "@/assets/schedule.png";
- 
+
 export function TransactionSuccess() {
   return (
     <Box p="md" maw={600} mx="auto">
       <Stack gap={0}>
-        <Center mb="md">
+        <Center mb="sm">
           <ThemeIcon radius="xl" size="lg">
             <IconCheck size={20} />
           </ThemeIcon>
@@ -27,7 +27,7 @@ export function TransactionSuccess() {
         <Text fw={700} size="xl" ta="center" mb="md">
           Transaction successful
         </Text>
- 
+
         <Paper
           withBorder
           radius="lg"
@@ -67,7 +67,7 @@ export function TransactionSuccess() {
             </Group>
           </Stack>
         </Paper>
- 
+
         <Box
           style={{
             background: "white",
@@ -83,7 +83,7 @@ export function TransactionSuccess() {
             }}
           />
         </Box>
- 
+
         <Paper
           withBorder
           radius="lg"
@@ -123,32 +123,31 @@ export function TransactionSuccess() {
             </Group>
           </Stack>
         </Paper>
- 
+
         <Group grow gap="sm">
-           
-        <Image
-          src={downloadImage}
-          alt="How to Pay"
-          width={200}
-          mx="auto"
-          my="sm"
-        />
-         <Image
-          src={shareImage}
-          alt="How to Pay"
-          width={200}
-          mx="auto"
-          my="sm"
-        />
-           <Image
-          src={scheduleImage}
-          alt="How to Pay"
-          width={200}
-          mx="auto"
-          my="sm"
-        />
+          <Image
+            src={downloadImage}
+            alt="How to Pay"
+            width={200}
+            mx="auto"
+            my="sm"
+          />
+          <Image
+            src={shareImage}
+            alt="How to Pay"
+            width={200}
+            mx="auto"
+            my="sm"
+          />
+          <Image
+            src={scheduleImage}
+            alt="How to Pay"
+            width={200}
+            mx="auto"
+            my="sm"
+          />
         </Group>
- 
+
         <Button fullWidth mt="md" size="md">
           Finish
         </Button>

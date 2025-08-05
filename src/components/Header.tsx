@@ -6,7 +6,7 @@ const PAGE_TITLES = {
   "/": "Canal Plus (DTT/DTH)",
   "/subscription": "Canal Plus (DTT/DTH)",
   "/confirmation": "Confirmation",
-  "/payment": "Payment Options",
+  "/transaction-success": "",
 } as const;
 
 export function Header() {

@@ -23,7 +23,7 @@ export default function HomePage() {
         ...location.state,
         footerLabel: "Continue",
         nextRoute: "/subscription",
-        subNumber: number
+        subNumber: number,
       },
     });
   };
@@ -79,7 +79,7 @@ export default function HomePage() {
         <img
           src={HowToPay}
           alt="How to pay"
-          onClick={() => navigate("/payment")}
+          onClick={() => navigate("/how-to-pay")}
           style={{
             width: "100%",
             borderRadius: "8px",
